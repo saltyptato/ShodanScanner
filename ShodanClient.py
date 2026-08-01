@@ -1,14 +1,11 @@
 # import statements
-import requests
+import json, requests
 
 class ShodanClient:
     def __init__(self, api_key: str):
         self.api_key = api_key
         
     def basic_search(self, query):
-        search_url = f"https://api.shodan.io/shodan/host/search?key={self.api_key}&query={query}"
-        print(f"search_url: {search_url}")
-        data = requests.get(search_url)
-        # print(type(data))
-        print(data.text)
-        return data
+        search_url = requests.get(f"https://api.shodan.io/shodan/host/search?key={self.api_key}&query={query}").json()
+        ipList = [item["ip_str"] for item in search_url["matches"]] 
+        return ipList

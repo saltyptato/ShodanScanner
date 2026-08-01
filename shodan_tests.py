@@ -1,25 +1,12 @@
 # import statements
-import json
+import json, os
 from ShodanClient import ShodanClient
 
-# Retrieving items in json file
-def load_config(file_path: str):
-    print(f"Attempting to load config: {file_path}")
-    try:
-        with open(file_path) as file:
-            data = json.load(file)
-        return data
-    except Exception as e:
-        print(f"Error loading config: {e}")
-
 def main():
-
-    data = load_config("config.default.json")
-
-    client = ShodanClient(api_key=data["api_keys"]["shodan"]["key"])
-    print(client.api_key)
+    SHODAN_API_KEY = os.getenv("SHODAN_API_KEY")
+    client = ShodanClient(api_key=SHODAN_API_KEY)
     
-    print(ShodanClient.basic_search(client,"nginx"))
+    print(ShodanClient.basic_search(client,"product:nginx"))
 
 # defining main function
 if __name__ == "__main__":
