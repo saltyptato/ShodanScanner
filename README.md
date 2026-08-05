@@ -15,39 +15,39 @@ This will be where we write unit tests to make sure our ShodanClient.py is funct
 
 ### Project Use Cases (CLI Tool)
 
-- Use Case 1: Basic Search Query
+#### Use Case 1: Basic Search Query
 
-Accept a keyword (e.g., "nginx") as a CLI input.
+- Accept a keyword (e.g., "nginx") as a CLI input.
 
-Fetch and print a list of IP addresses running that service.
+- Fetch and print a list of IP addresses running that service.
 
-- Use Case 2: Search by Country
+#### Use Case 2: Search by Country
 
-Accept a keyword and country code (e.g., "apache US").
+- Accept a keyword and country code (e.g., "apache US").
 
-Return results only from the specified country.
+- Return results only from the specified country.
 
-- Use Case 3: Filter by Port
+#### Use Case 3: Filter by Port
 
-Allow user to filter results by a specific port (e.g., only port 22 for SSH).
+- Allow user to filter results by a specific port (e.g., only port 22 for SSH).
 
-- Use Case 4: Fetch Host Details
+#### Use Case 4: Fetch Host Details
 
-Accept an IP address as input.
+- Accept an IP address as input.
 
-Retrieve and display detailed information about that host.
+- Retrieve and display detailed information about that host.
 
-- Use Case 5: Save to File
+#### Use Case 5: Save to File
 
-Add an option to save search results to a JSON or CSV file.
+- Add an option to save search results to a JSON or CSV file.
 
-- Use Case 6: Handle API Errors Gracefully
+#### Use Case 6: Handle API Errors Gracefully
 
-Inform the user if the API key is invalid, rate-limited, or if no results are found.
+- Inform the user if the API key is invalid, rate-limited, or if no results are found.
 
-- Use Case 7: Summary Statistics
+#### Use Case 7: Summary Statistics
 
-After a search, display a summary: how many results, top ports, and most common ISPs.
+- After a search, display a summary: how many results, top ports, and most common ISPs.
 
 ## Resources and documentation
 
