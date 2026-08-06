@@ -52,3 +52,4 @@ This will be where we write unit tests to make sure our ShodanClient.py is funct
 ## Resources and documentation
 
 Shodan API: https://developer.shodan.io/api
+Shodan Search Filters: https://www.shodan.io/search/filters
