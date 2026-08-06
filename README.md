@@ -53,3 +53,4 @@ This will be where we write unit tests to make sure our ShodanClient.py is funct
 
 Shodan API: https://developer.shodan.io/api
 Shodan Search Filters: https://www.shodan.io/search/filters
+Github Actions Syntax: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax

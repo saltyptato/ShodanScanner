@@ -1,0 +1,30 @@
+name: TruffleHog Secret Detection Caller
+run-name: TruffleHog is scanning ${{ github.repository }} for secrets
+on:
+    push:
+        branches-ignore:
+            - main
+    pull_request:
+jobs:
+    trufflehog:
+        name: TruffleHog Scanner
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: TruffleHog OSS
+              uses: trufflesecurity/trufflehog@main
+              with:
+                path: ./
+                base: ${{ github.event.repository.default_branch }} # Where to begin the scan, usually you'll want the main branch
+                head: HEAD                                          # Where to end the scan, usually you'll want the dev branch
+                extra_args: --only-verified                         # This only outputs secrets that TruffleHog was able to verify
+            - name: Add comment
+              if: ${{ failure() && github.event_name == 'pull_request' }}
+              uses: peter-evans/create-or-update-comment@v4
+              with:
+                issue-number: ${{ github.event.pull_request.number }}
+                body: |
+                    A verified secret was detected by TruffleHog.
