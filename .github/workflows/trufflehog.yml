@@ -23,7 +23,7 @@ jobs:
                 extra_args: --only-verified                         # This only outputs secrets that TruffleHog was able to verify
             - name: Add comment
               if: ${{ failure() && github.event_name == 'pull_request' }}
-              uses: peter-evans/create-or-update-comment@v4
+              uses: peter-evans/create-or-update-comment@v5
               with:
                 issue-number: ${{ github.event.pull_request.number }}
                 body: |
